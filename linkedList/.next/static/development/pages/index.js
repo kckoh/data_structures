@@ -1,5 +1,96 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/index.js"],{
 
+/***/ "./components/ListNode.js":
+/*!********************************!*\
+  !*** ./components/ListNode.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
+
+
+
+var ListNode =
+/*#__PURE__*/
+function () {
+  function ListNode(d) {
+    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, ListNode);
+
+    this.data = d;
+    this.next = null;
+  }
+
+  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(ListNode, [{
+    key: "appendToTail",
+    value: function appendToTail(d) {
+      var end = new ListNode(d);
+      var n = this;
+
+      while (n.next != null) {
+        n = n.next;
+      }
+
+      n.next = end;
+    }
+  }]);
+
+  return ListNode;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (ListNode);
+
+/***/ }),
+
+/***/ "./components/SumLists.js":
+/*!********************************!*\
+  !*** ./components/SumLists.js ***!
+  \********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ListNode_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListNode.js */ "./components/ListNode.js");
+
+var n1 = new _ListNode_js__WEBPACK_IMPORTED_MODULE_0__["default"](7);
+var n2 = new _ListNode_js__WEBPACK_IMPORTED_MODULE_0__["default"](5);
+var temp;
+var n3 = new _ListNode_js__WEBPACK_IMPORTED_MODULE_0__["default"](0);
+n3.appendToTail(0);
+n3.appendToTail(0);
+n1.appendToTail(1);
+n1.appendToTail(6);
+n2.appendToTail(9);
+n2.appendToTail(2);
+
+do {
+  temp = n1.data + n2.data;
+
+  if (temp >= 10) {
+    temp = temp % 10;
+    n3.next.data = 1;
+  }
+
+  if (n3.data == 0) {
+    n3.data = temp;
+  } else {
+    n3.data += temp;
+  }
+
+  console.log(n3.data);
+  n1 = n1.next;
+  n2 = n2.next;
+  n3 = n3.next;
+} while (n1 != null);
+
+console.log();
+
+/***/ }),
+
 /***/ "./components/linkedList.js":
 /*!**********************************!*\
   !*** ./components/linkedList.js ***!
@@ -562,33 +653,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_linkedList_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/linkedList.js */ "./components/linkedList.js");
+/* harmony import */ var _components_ListNode_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/ListNode.js */ "./components/ListNode.js");
+/* harmony import */ var _components_SumLists_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/SumLists.js */ "./components/SumLists.js");
 var _jsxFileName = "/workspace/data_structures/linkedList/pages/index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
-var node = new _components_linkedList_js__WEBPACK_IMPORTED_MODULE_1__["default"](1);
+
+
+var node = new _components_ListNode_js__WEBPACK_IMPORTED_MODULE_2__["default"](1);
 
 var Index = function Index() {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 4
+      lineNumber: 7
     },
     __self: this
   }, __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 8
     },
     __self: this
-  }, "Hello Next.js"), (node.addNode(2), node.addNode(3), node.transverse()));
+  }, "Hello Next.js"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);
 
 /***/ }),
 
-/***/ 1:
+/***/ 0:
 /*!*******************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2Fworkspace%2Fdata_structures%2FlinkedList%2Fpages%2Findex.js ***!
   \*******************************************************************************************************************************/
@@ -611,5 +706,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

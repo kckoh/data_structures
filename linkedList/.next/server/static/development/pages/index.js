@@ -88,10 +88,88 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
+
+/***/ "./components/ListNode.js":
+/*!********************************!*\
+  !*** ./components/ListNode.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+class ListNode {
+  constructor(d) {
+    this.data = d;
+    this.next = null;
+  }
+
+  appendToTail(d) {
+    var end = new ListNode(d);
+    var n = this;
+
+    while (n.next != null) {
+      n = n.next;
+    }
+
+    n.next = end;
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (ListNode);
+
+/***/ }),
+
+/***/ "./components/SumLists.js":
+/*!********************************!*\
+  !*** ./components/SumLists.js ***!
+  \********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ListNode_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListNode.js */ "./components/ListNode.js");
+
+var n1 = new _ListNode_js__WEBPACK_IMPORTED_MODULE_0__["default"](7);
+var n2 = new _ListNode_js__WEBPACK_IMPORTED_MODULE_0__["default"](5);
+var temp;
+var n3 = new _ListNode_js__WEBPACK_IMPORTED_MODULE_0__["default"](0);
+n3.appendToTail(0);
+n3.appendToTail(0);
+n1.appendToTail(1);
+n1.appendToTail(6);
+n2.appendToTail(9);
+n2.appendToTail(2);
+
+do {
+  temp = n1.data + n2.data;
+
+  if (temp >= 10) {
+    temp = temp % 10;
+    n3.next.data = 1;
+  }
+
+  if (n3.data == 0) {
+    n3.data = temp;
+  } else {
+    n3.data += temp;
+  }
+
+  console.log(n3.data);
+  n1 = n1.next;
+  n2 = n2.next;
+  n3 = n3.next;
+} while (n1 != null);
+
+console.log();
+
+/***/ }),
 
 /***/ "./components/linkedList.js":
 /*!**********************************!*\
@@ -167,31 +245,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_linkedList_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/linkedList.js */ "./components/linkedList.js");
+/* harmony import */ var _components_ListNode_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/ListNode.js */ "./components/ListNode.js");
+/* harmony import */ var _components_SumLists_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/SumLists.js */ "./components/SumLists.js");
 var _jsxFileName = "/workspace/data_structures/linkedList/pages/index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
-const node = new _components_linkedList_js__WEBPACK_IMPORTED_MODULE_1__["default"](1);
+
+
+const node = new _components_ListNode_js__WEBPACK_IMPORTED_MODULE_2__["default"](1);
 
 const Index = () => __jsx("div", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 4
+    lineNumber: 7
   },
   __self: undefined
 }, __jsx("p", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 5
+    lineNumber: 8
   },
   __self: undefined
-}, "Hello Next.js"), (node.addNode(2), node.addNode(3), node.transverse()));
+}, "Hello Next.js"));
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
